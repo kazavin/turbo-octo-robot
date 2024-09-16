@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Личный кабинет</title>
+</head>
+<body>
+    <h1>Личные проекты</h1>
+    <ul>
+        {% for project in projects %}
+            <li>{{ project.title }} - {{ project.budget }}$</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('post_project') }}">Добавить проект</a>
+    <a href="{{ url_for('logout') }}">Выйти</a>
+</body>
+</html>

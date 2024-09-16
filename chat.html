@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Чат</title>
+</head>
+<body>
+    <h1>Чат с пользователем</h1>
+    <ul>
+        {% for message in messages %}
+            <li>
+                {% if message.sender_id == current_user.id %}
+                    Вы: {{ message.content }} <br> <small>{{ message.timestamp }}</small>
+                {% else %}
+                    {{ message.sender.username }}: {{ message.content }} <br> <small>{{ message.timestamp }}</small>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+    <form method="POST">
+        <textarea name="content" required></textarea><br>
+        <input type="submit" value="Отправить сообщение">
+    </form>
+</body>
+</html>
